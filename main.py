@@ -42,6 +42,11 @@ bottomRight = Frame(bottom, width=350, height=600, bd=2, relief="raise")
 bottomRight .pack(side=RIGHT)
 
 #======================================= 1 ==========================================#
+def iExit():
+    iExit = messagebox.askyesno("Vehicle Trading System", "Confirm if you want to exit")
+    if iExit > 0:
+        root.destroy()
+        return
 
 CustomerName = StringVar()
 CustomerAddress = StringVar()
@@ -76,27 +81,27 @@ Customized = StringVar()
 Leather = StringVar()
 GPS = StringVar()
 
-lblModified = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="Modified", fg="black", width=20, bd=10, anchor='w')
+lblModified = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="Modified", fg="black", width=20, anchor='w')
 lblModified.grid(row=0, column=0)
 txtModified = Entry(bottomLeftBottomL, font=('arial', 16, 'bold'), bd=2, width=14, bg="white", justify='left', textvariable=Modified)
 txtModified.grid(row=0, column=1)
 
-lblStereo = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="Stereo System", fg="black", width=20, bd=10, anchor='w')
+lblStereo = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="Stereo System", fg="black", width=20, anchor='w')
 lblStereo.grid(row=1, column=0)
 txtStereo = Entry(bottomLeftBottomL, font=('arial', 16, 'bold'), bd=2, width=14, bg="white", justify='left', textvariable=Stereo)
 txtStereo.grid(row=1, column=1)
 
-lblLeather = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="Leather Interior ", fg="black", width=20, bd=10, anchor='w')
+lblLeather = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="Leather Interior ", fg="black", width=20, anchor='w')
 lblLeather.grid(row=2, column=0)
 txtLeather = Entry(bottomLeftBottomL, font=('arial', 16, 'bold'), bd=2, width=14, bg="white", justify='left', textvariable=Leather)
 txtLeather.grid(row=2, column=1)
 
-lblCustomized = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="Customized Details", fg="black", width=20, bd=10, anchor='w')
+lblCustomized = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="Customized Details", fg="black", width=20, anchor='w')
 lblCustomized.grid(row=3, column=0)
 txtCustomized = Entry(bottomLeftBottomL, font=('arial', 16, 'bold'), bd=2, width=14, bg="white", justify='left', textvariable=Customized)
 txtCustomized.grid(row=3, column=1)
 
-lblGPS = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="Global Positioning System", fg="black", width=20, bd=10, anchor='w')
+lblGPS = Checkbutton(bottomLeftBottomL, font=('arial', 16, 'bold'), text="GPS", fg="black", width=20, anchor='w')
 lblGPS.grid(row=4, column=0)
 txtGPS = Entry(bottomLeftBottomL, font=('arial', 16, 'bold'), bd=2, width=14, bg="white", justify='left', textvariable=GPS)
 txtGPS.grid(row=4, column=1)
@@ -134,5 +139,40 @@ txtCarMileage = Entry(bottomLeftTopR, font=('arial', 16, 'bold'), bd=2, width=16
 txtCarMileage.grid(row=3, column=1)
 
 #======================================= 4 ==========================================#
+
+lblVAT = Checkbutton(bottomLeftBottomR, font=('arial', 16, 'bold'), text="VAT", fg="black", width=13, anchor='w')
+lblVAT.grid(row=0, column=0)
+txtVAT = Entry(bottomLeftBottomR, font=('arial', 16, 'bold'), bd=2, width=17, bg="white", justify='left', textvariable=CustomerTelephone)
+txtVAT.grid(row=0, column=1)
+
+lblDiscount = Checkbutton(bottomLeftBottomR, font=('arial', 16, 'bold'), text="Discount", fg="black", width=13, anchor='w')
+lblDiscount.grid(row=1, column=0)
+txtDiscount = Entry(bottomLeftBottomR, font=('arial', 16, 'bold'), bd=2, width=17, bg="white", justify='left', textvariable=CustomerTelephone)
+txtDiscount.grid(row=1, column=1)
+
+lblTax = Label(bottomLeftBottomR, font=('arial', 16, 'bold'), text="Tax", fg="black", width=13, bd=12, anchor='w')
+lblTax.grid(row=2, column=0)
+txtTax = Entry(bottomLeftBottomR, font=('arial', 16, 'bold'), bd=2, width=17, bg="white", justify='left', textvariable=CustomerTelephone)
+txtTax.grid(row=2, column=1)
+
+lblSubTotal = Label(bottomLeftBottomR, font=('arial', 16, 'bold'), text="Sub Total", fg="black", width=13, bd=12, anchor='w')
+lblSubTotal.grid(row=3, column=0)
+txtSubTotal = Entry(bottomLeftBottomR, font=('arial', 16, 'bold'), bd=2, width=17, bg="white", justify='left', textvariable=CustomerTelephone)
+txtSubTotal.grid(row=3, column=1)
+
+lblTotal = Label(bottomLeftBottomR, font=('arial', 16, 'bold'), text="Total", fg="black", width=13, bd=12, anchor='w')
+lblTotal.grid(row=4, column=0)
+txtTotal = Entry(bottomLeftBottomR, font=('arial', 16, 'bold'), bd=2, width=17, bg="white", justify='left', textvariable=CustomerTelephone)
+txtTotal.grid(row=4, column=1)
+
+btnReset = Button(bottomLeftBottomR,pady=8, bd=2, fg="black", font=('arial', 16, 'bold'), width=13, text="Reset ", bg='white').grid(row=6, column=0)
+
+btnExit = Button(bottomLeftBottomR,pady=8, bd=2, fg="black", font=('arial', 16, 'bold'), width=13, text="Exit", bg='white', command=iExit).grid(row=6, column=1)
+
+#=======================================   ==========================================#
+lblReceipt = Label(bottomRight, font=('arial', 16, 'bold'), text="Receipt", bd=2, anchor='w')
+lblReceipt.grid(row=0, column=0, sticky=W)
+txtReceipt = Text(bottomRight, font=('arial', 11, 'bold'), bd=8, width=46, height=26, bg="white")
+txtReceipt.grid(row=1, column=0, sticky=W)
 
 root.mainloop()
