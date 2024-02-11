@@ -182,6 +182,34 @@ def CarCost():
         CostofCar.set(myCar)
         CarMileage.set(iMile)
 
+    if (var1.get() == 1):
+        Modified.set(5000)
+    elif (var1.get() == 0):
+        Modified.set(0)
+    if (var2.get() == 1):
+        Stereo.set(350)
+    elif (var2.get() == 0):
+        Stereo.set(0)
+    if (var3.get() == 1):
+        Leather.set(4200)
+    elif (var3.get() == 0):
+        Leather.set(0)
+    if (var4.get() == 1):
+        Customized.set(10999)
+    elif (var4.get() == 0):
+        Customized.set(0)
+    if (var5.get() == 1):
+        GPS.set(500)
+    elif (var5.get() == 0):
+        GPS.set(0)
+    if (var8.get() == 1):
+        VAT.set("Yes")
+    elif (var8.get() == 0):
+        VAT.set("No")
+    if (var9.get() == 1):
+        Discount.set("Yes")
+    elif (var9.get() == 0):
+        Discount.set("No")
 
 #======================================= 1 ==========================================#
 
