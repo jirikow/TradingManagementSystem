@@ -211,6 +211,45 @@ def CarCost():
     elif (var9.get() == 0):
         Discount.set("No")
 
+    Item1 = float(CostofCar.get())
+    Item2 = float(CarMileage.get())
+    Item3 = float(Modified.get())
+    Item4 = float(Stereo.get())
+    Item5 = float(Leather.get())
+    Item6 = float(Customized.get())
+    Item7 = float(GPS.get())
+    Item8 = "€", str('%.2f'%((Item1 - Item2) + Item3 + Item4 + Item5 + Item6 + Item7))
+    Item9 = (((Item1 - Item2) + Item3 + Item4 + Item5 + Item6 + Item7) * 0.45)/100
+    Item9 = "€", str('%.2f'%(Item9))
+    Item10 = (((Item1 - Item2) + Item3 + Item4 + Item5 + Item6 + Item7) * 0.45)/100
+    Item11 = ((Item1 - Item2) + Item3 + Item4 + Item5 + Item6 + Item7)
+    Item12 = "€", str('%.2f'%(Item10 + Item11))
+    SubTotal.set(Item8)
+    Tax.set(Item9)
+    Total.set(Item12)
+
+#=====================================RECEIPT========================================#
+def Receipt():
+    txtReceipt.delete("1.0",END)
+    txtReceipt.insert(END,'Items\t\t\t\t' + "Cost of Items \n\n")
+    txtReceipt.insert(END, '============================' + "\n")
+    txtReceipt.insert(END, 'Customer Name:\t\t\t\t' + CustomerName.get() + "\n")
+    txtReceipt.insert(END, '============================' + "\n")
+    txtReceipt.insert(END, 'Typ auta: \t\t\t\t' + var7.get() + "\n")
+    txtReceipt.insert(END, 'Cena auta: \t\t\t\t' + CostofCar.get() + "\n")
+    txtReceipt.insert(END, 'Najetých kilometrů: \t\t\t\t' + var18.get() + "\n")
+    txtReceipt.insert(END, 'Cena auta na protiúčet: \t\t\t\t' + CarMileage.get() + "\n")
+    txtReceipt.insert(END, 'Příplatek za vylepšení:\t\t\t\t' + Modified.get() + "\n")
+    txtReceipt.insert(END, 'Příplatek za stereo:\t\t\t\t' + Stereo.get() + "\n")
+    txtReceipt.insert(END, 'Příplatek za kožené sedačky:\t\t\t\t' + Leather.get() + "\n")
+    txtReceipt.insert(END, 'Příplatek za modifikace:\t\t\t\t' + Customized.get() + "\n")
+    txtReceipt.insert(END, 'Příplatek za GPS:\t\t\t\t' + GPS.get() + "\n")
+    txtReceipt.insert(END, '============================' + "\n")
+    txtReceipt.insert(END, 'Daň: \t\t\t\t' + Tax.get() + "\n")
+    txtReceipt.insert(END, 'Součet: \t\t\t\t' + SubTotal.get() + "\n")
+    txtReceipt.insert(END, 'Částka celkem: \t\t\t\t' + Total.get() + "\n")
+    txtReceipt.insert(END, '============================' + "\n")
+
 #======================================= 1 ==========================================#
 
 CustomerName = StringVar()
@@ -305,7 +344,7 @@ btnTotalCost = Button(bottomLeftBottomL,pady=8, bd=2, fg="black", font=('arial',
                       bg='white', command=CarCost).grid(row=5, column=0)
 
 btnReceipt = Button(bottomLeftBottomL,pady=8, bd=2, fg="black", font=('arial', 16, 'bold'), width=13, text="Receipt ",
-                    bg='white').grid(row=5, column=1)
+                    bg='white', command=Receipt).grid(row=5, column=1)
 
 #======================================= 2 ==========================================#
 
